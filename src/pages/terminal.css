@@ -1,0 +1,200 @@
+.screen {
+    /* Fondo oscuro del CRT */
+    background-color: #225633; 
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    
+    /* Efectos de bisel y brillo */
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.8),
+        0 0 10px rgba(51, 255, 119, 0.15);
+    
+    /* Escaneo de líneas sutil propio del tubo de rayos catódicos */
+    background-image: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+}
+
+/* Área de contenido variable (transparente, sólo maneja scroll) */
+.content-area {
+    flex: 1; 
+    overflow-y: auto; 
+    padding-right: 10px;
+}
+
+/* Estilo general para cada recuadro o tarjeta de contenido */
+.panel {
+    box-sizing: border-box;
+    background-color: #07140d; /* Fondo oscuro del bloque */
+    padding: 30px;
+    border: 1px solid rgba(51, 255, 119, 0.2); 
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Grilla para organizar elementos (2/3 texto, 1/3 imagen) */
+.contenedor-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 y 1/3 proporcional */
+    gap: 20px; /* Espacio entre los recuadros del grid */
+    width: 100%;
+    box-sizing: border-box;
+    align-items: stretch; /* Permite que ambos paneles tengan la misma altura */
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid rgba(51, 255, 119, 0.4);
+    box-shadow: 0 0 10px rgba(51, 255, 119, 0.1);
+}
+
+.terminal-nav {
+    display: flex;
+    width: 100%;
+    gap: 20px; 
+    flex-shrink: 0; 
+}
+
+/* Botones como recuadros independientes */
+.terminal-nav button,
+.links {
+    background-color: #07140d; 
+    border: 1px solid rgba(51, 255, 119, 0.3); 
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #33ff77;
+    font-family: 'VT323', 'Consolas', monospace;
+    font-size: 35px;
+    cursor: pointer;
+    text-shadow: 0 0 4px rgba(51, 255, 119, 0.5);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.terminal-nav button:hover,
+.terminal-nav button.active,
+.links:hover {
+    color: #05100a;
+    background-color: #33ff77;
+    box-shadow: 0 0 15px #33ff77;
+    border-color: #33ff77;
+    outline: none;
+    transform: translateY(-2px); 
+}
+
+.text {
+    color: #33ff77; 
+    font-family: 'VT323', 'Consolas', 'Courier New', monospace;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-shadow: 
+        0 0 2px rgba(51, 255, 119, 0.8),
+        0 0 8px rgba(51, 255, 119, 0.4);
+}
+
+.text_h1 {
+    font-size: 45px;
+}
+
+.text_p {
+    font-size: 30px;
+}
+
+/* Container de toda la página (ya maneja gap de 20px) */
+.home-container,
+.project-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+/* Quita estilos por defecto del tag <a> envolvente */
+.contenedor-grid-link {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+/* Transición uniforme para los paneles dentro del grid */
+.contenedor-grid-link .panel {
+  transition: all 0.2s ease;
+}
+
+/* HOVER UNIFICADO: Al pasar el cursor por el enlace, ambos paneles se iluminan */
+.contenedor-grid-link:hover .panel {
+  background-color: #33ff77;
+  color: #05100a;
+  border-color: #33ff77;
+  box-shadow: 0 0 15px #33ff77;
+  transform: translateY(-2px);
+}
+
+/* Asegura que los textos dentro del panel inviertan su color al activar el hover */
+.contenedor-grid-link:hover .panel .text,
+.contenedor-grid-link:hover .panel h3,
+.contenedor-grid-link:hover .panel p {
+  color: #05100a;
+  text-shadow: none;
+}
+
+/* Resalta la imagen al hacer hover */
+.contenedor-grid-link:hover .image {
+  border-color: #05100a;
+  box-shadow: 0 0 10px rgba(5, 16, 10, 0.5);
+}
+
+
+
+.sys-info {
+    opacity: 0.8;
+}
+
+.home-container h1 {
+    font-size: 70px;
+    margin: 10px 0;
+    text-shadow: 0 0 10px rgba(51, 255, 119, 0.8);
+}
+
+.home-container h2 {
+    font-size: 55px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed rgba(51, 255, 119, 0.4);
+    padding-bottom: 10px;
+}
+
+.skills-summary ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.skills-summary li {
+    margin-bottom: 5px;
+}
+
+/* Animación del Cursor Parpadeante */
+.prompt-line {
+    display: flex;
+    align-items: center;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
