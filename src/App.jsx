@@ -1,9 +1,9 @@
-import React, { Suspense, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { EffectComposer, Bloom, ChromaticAberration, Vignette } from '@react-three/postprocessing'
-import { OrbitControls } from '@react-three/drei'
-import { Vector2, Vector3 } from 'three'
-import Model from './components/loader.jsx'
+import React, { Suspense, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { EffectComposer, Bloom, ChromaticAberration, Vignette } from '@react-three/postprocessing';
+import { OrbitControls } from '@react-three/drei';
+import { Vector2, Vector3 } from 'three';
+import Model from './components/loader.jsx';
 
 // Componente para animar la cámara suavemente a una posición objetivo
 function CameraRig({ targetPosition, targetLookAt }) {
