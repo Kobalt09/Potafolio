@@ -31,8 +31,8 @@ function App() {
       lookAt: new Vector3(0, 0, 0)
     },
     monitor: {
-      position: new Vector3(0.1, 0.05, 5.8), // Ajusta según tu modelo
-      lookAt: new Vector3(0.2, 0.0, 4.5)
+      position: new Vector3(0.1, 0.05, 5.6), // Ajusta según tu modelo
+      lookAt: new Vector3(0.21, 0.0, 4.5)
     },
     leftObject: {
       position: new Vector3(-1.0, 0.1, 5.0), // Ajusta según tu modelo
@@ -45,10 +45,10 @@ function App() {
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#3f413f', position: 'relative' }}>
       {/* Botones de navegación sobre el Canvas */}
-      <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 10, display: 'flex', gap: '10px' }}>
+      <div style={{ position: 'absolute', button: '20px', left: '40%', zIndex: 10, display: 'flex', gap: '10px' }}>
+        <button onClick={() => setActiveView('leftObject')}>Objeto Izquierda</button>
         <button onClick={() => setActiveView('default')}>Vista General</button>
         <button onClick={() => setActiveView('monitor')}>Centrar Monitor</button>
-        <button onClick={() => setActiveView('leftObject')}>Objeto Izquierda</button>
       </div>
 
       <Canvas camera={{ position: [0, 0.05, 5.4], fov: 45 }}>
