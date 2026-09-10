@@ -27,15 +27,37 @@ function About_Me() {
               {/* Lista de habilidades/comandos disponibles */}
         <section className="skills-summary text text_p">
           <h3>&gt; SKILLS :</h3>
-          <ul>
-            <li>* FRONTEND: React, Vite, Three.js / R3F</li>
-            <li>* STYLES: CSS3, Tailwind, PostProcessing</li>
-            <li>* SYSTEM: Linux (CachyOS), Git, Node.js</li>
+          <ul style={{ listStyle: 'none', paddingLeft: 0, display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            
+            <li>
+              <div><strong>* FRONTEND:</strong> React, Next.js, TailwindCSS, HTML5, CSS3, Vite, Three.js / R3F</div>
+            </li>
+
+            <li>
+              <div><strong>* BACKEND:</strong> Node.js, NestJS, Express</div>
+            </li>
+
+            <li>
+              <div><strong>* DATABASES:</strong> PostgreSQL, MySQL, SQL Server</div>
+            </li>
+
+            <li>
+              <div><strong>* TOOLS & PLATFORMS:</strong> Git, Docker, Linux, Postman, n8n</div>
+            </li>
+
+            <li>
+              <div><strong>* GAME DEV & DESIGN:</strong> Godot, Blender, Figma, Blockbench</div>
+            </li>
+
+            <li>
+              <div><strong>* IOT & HARDWARE:</strong> Arduino, Raspberry Pi, ESP32</div>
+            </li>
+
           </ul>
         </section>
         
         <section className="skills-summary text text_p">
-          <h3>&gt; EDUcatION :</h3>
+          <h3>&gt; eduCATion :</h3>
           <ul>
             <li>* Escuela Técnica Andres Bello, Intermediate Vocational Training Cycle (Sep 2018 - May 2022) </li>
             <li>* Universidad Católica Andrés Bello, University Degree (Sep 2022 - Present) </li>

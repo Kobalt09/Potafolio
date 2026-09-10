@@ -4,6 +4,7 @@ import { EffectComposer, Bloom, ChromaticAberration, Vignette } from '@react-thr
 import { OrbitControls } from '@react-three/drei';
 import { Vector2, Vector3 } from 'three';
 import Model from './components/loader.jsx';
+import Room from './components/room.jsx';
 
 // Componente para animar la cámara suavemente a una posición objetivo
 function CameraRig({ targetPosition, targetLookAt }) {
@@ -20,23 +21,31 @@ function CameraRig({ targetPosition, targetLookAt }) {
     controlsRef.current.update()
   })
 
-  return <OrbitControls ref={controlsRef} enableDamping enableZoom={false} />
+  // Desactivamos la rotación (arrastrar) y el desplazamiento lateral (pan)
+  return (
+    <OrbitControls 
+      ref={controlsRef} 
+      enableDamping 
+      enableZoom={false} 
+      enableRotate={false} 
+      enablePan={false} 
+    />
+  )
 }
 
 function App() {
-  // Posiciones y focos para cada vista [X, Y, Z]
   const cameraViews = {
     default: {
       position: new Vector3(0, 0.05, 5.4),
       lookAt: new Vector3(0, 0, 0)
     },
     monitor: {
-      position: new Vector3(0.1, 0.05, 5.6), // Ajusta según tu modelo
+      position: new Vector3(0.1, 0.05, 5.6),
       lookAt: new Vector3(0.21, 0.0, 4.5)
     },
     leftObject: {
-      position: new Vector3(-1.0, 0.1, 5.0), // Ajusta según tu modelo
-      lookAt: new Vector3(-0.8, -0.2, 4.2)
+      position: new Vector3(0.2, 0.3, 5.4),
+      lookAt: new Vector3(-0.8, -0.6, 4.2)
     }
   }
 
@@ -44,22 +53,30 @@ function App() {
 
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#3f413f', position: 'relative' }}>
-      {/* Botones de navegación sobre el Canvas */}
-      <div style={{ position: 'absolute', button: '20px', left: '40%', zIndex: 10, display: 'flex', gap: '10px' }}>
-        <button onClick={() => setActiveView('leftObject')}>Objeto Izquierda</button>
-        <button onClick={() => setActiveView('default')}>Vista General</button>
-        <button onClick={() => setActiveView('monitor')}>Centrar Monitor</button>
+      <div style={{ 
+        position: 'absolute', 
+        top: '20px', 
+        left: '50%', 
+        transform: 'translateX(-50%)', 
+        zIndex: 10, 
+        display: 'flex', 
+        gap: '10px' 
+      }}>
+        <button onClick={() => setActiveView('leftObject')}>table</button>
+        <button onClick={() => setActiveView('default')}>general view</button>
+        <button onClick={() => setActiveView('monitor')}>focus on monitor</button>
       </div>
 
+      {/* Se removió la prop enableRotate del Canvas ya que pertenece a OrbitControls */}
       <Canvas camera={{ position: [0, 0.05, 5.4], fov: 45 }}>
         <Suspense fallback={null}>
           <Model position={[0.2, -0.3, 4.5]} rotation={[0, 3, 0]} />
+          <Room position={[0.2, -0.3, 4.4]} rotation={[0, 2, 0]} />
         </Suspense>
 
-        <ambientLight intensity={0.1} />
-        <directionalLight color="white" position={[0, 0, 5]} />
+        <ambientLight intensity={0.5} />
+        <directionalLight color="white" position={[0, 4, 5]} />
 
-        {/* Rig animador de cámara */}
         <CameraRig 
           targetPosition={cameraViews[activeView].position} 
           targetLookAt={cameraViews[activeView].lookAt} 
