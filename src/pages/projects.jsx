@@ -22,6 +22,44 @@ function Projects() {
             </div>
         </a>
 
+        {/* Proyecto : Aqualia */}
+        <a 
+            href="http://aqualia.netlify.app/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="contenedor-grid-link"
+        >
+            <div className="contenedor-grid">
+            <div className="panel text text_p">
+                <h3>Aqualia</h3>
+                <p>A 3D web portal that simulated a museum tour containing much of the culture of Bolívar state and its connection to the river sources</p>
+            </div>
+            
+            <div className="panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img className="image" src="#" alt="Aqualia" />
+            </div>
+            </div>
+        </a>
+
+                {/* Proyecto : GraphRAG literario */}
+        <a 
+            href="https://github.com/Carlos19men/proyecto-2-IA-fichas-literarias" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="contenedor-grid-link"
+        >
+            <div className="contenedor-grid">
+            <div className="panel text text_p">
+                <h3>GraphRAG literario</h3>
+                <p>An advanced GraphRAG system designed specifically for the extraction, structuring, and consultation of technical-literary and historical records of the State of Bolívar, Venezuela.</p>
+            </div>
+            
+            <div className="panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img className="image" src="#" alt="Aqualia" />
+            </div>
+            </div>
+        </a>
+
         {/* Proyecto 2: Irrigation-system */}
         <a 
             href="https://github.com/Kobalt09/Sistema-de-riego" 
@@ -43,7 +81,7 @@ function Projects() {
 
         {/* Proyecto 3: PolkaEdu */}
         <a 
-            href="https://github.com/notoriussss/PolkaEdu" 
+            href="https://polkaedu.netlify.app/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="contenedor-grid-link"
