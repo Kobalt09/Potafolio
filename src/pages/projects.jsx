@@ -32,11 +32,11 @@ function Projects() {
                 <div className="contenedor-grid">
                     <div className="panel text text_p">
                         <h3>Advanced Control Panel Oil Company</h3>
-                        <p>system focused on monitoring and analysis of large volumes of data integrated with a microservices structure; designed to allow audits and monitoring of state</p>
+                        <p>System focused on monitoring and analysis of large volumes of data integrated with a microservices structure; designed to allow audits and monitoring of state.</p>
                     </div>
 
                     <div className="panel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <img className="image" src="#" alt="Aqualia" />
+                        <img className="image" src="#" alt="Advanced Control Panel Oil Company" />
                     </div>
                 </div>
             </a>
